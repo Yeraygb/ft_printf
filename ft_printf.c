@@ -6,7 +6,7 @@
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 11:47:00 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/05/02 11:32:48 by ygonzale         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:28:53 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,11 @@ int	ft_printf(char const *str, ...)
 
 int	main(void)
 {
-	ft_printf("%p\n", "hola como estas");
-	printf("%p\n", "hola como estas");
+	int x, y;
+
+	x = ft_printf(" %d\n", 42);
+	y = printf (" %s\n", "hola2");
+
+	printf("x --> %d || y --> %d\n", x, y);
 	return (0);
 }

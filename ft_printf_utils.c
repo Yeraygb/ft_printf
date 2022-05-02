@@ -6,15 +6,15 @@
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 16:47:27 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/05/02 11:33:22 by ygonzale         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:21:31 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	return (write(1, &c, 1));
 }
 
 void	ft_putstr(char *str)
