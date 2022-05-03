@@ -6,7 +6,7 @@
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 16:47:27 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/05/03 13:32:03 by ygonzale         ###   ########.fr       */
+/*   Updated: 2022/05/03 16:19:25 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	ft_putstr(char *str)
 
 	i = 0;
 	dest = 0;
+	if (!str)
+		return (ft_putstr("(null)"));
 	while (str[i])
 	{
 		dest += ft_putchar(str[i]);
@@ -56,18 +58,14 @@ int	ft_putnbr(int nb)
 	return (dest);
 }
 
-int	ft_puthexa(long int nb, char c)
+int	ft_puthexa(unsigned int nb, char c)
 {
 	int	dest;
 
 	dest = 0;
-	if (nb == -2147483648)
-		return (ft_putstr("-2147483648"));
 	if (c == 'x' || c == 'p')
 	{
-		if (nb < 0)
-			dest += ft_puthexa(nb / 16, c);
-		else if (nb >= 16)
+		if (nb >= 16)
 			dest += ft_puthexa(nb / 16, c);
 		dest += ft_putchar("0123456789abcdef" [nb % 16]);
 	}
@@ -85,8 +83,10 @@ int	ft_putunnbr(unsigned int nb)
 	int	dest;
 
 	dest = 0;
-	if (nb > 9)
+	if (nb >= 10)
 		dest += ft_putunnbr(nb / 10);
-	dest += ft_putchar(nb % 10);
+	nb = nb % 10;
+	if (nb < 10)
+		dest += ft_putchar(nb + 48);
 	return (dest);
 }

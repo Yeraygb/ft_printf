@@ -6,11 +6,12 @@
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 11:47:00 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/05/03 13:20:39 by ygonzale         ###   ########.fr       */
+/*   Updated: 2022/05/03 16:26:05 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
 
 int	general_formats(va_list pd, char c)
 {
@@ -28,13 +29,13 @@ int	general_formats(va_list pd, char c)
 	else if (c == 'u')
 		dest += ft_putunnbr(va_arg(pd, unsigned int));
 	else if (c == 'x')
-		dest += ft_puthexa(va_arg(pd, int), c);
+		dest += ft_puthexa(va_arg(pd, unsigned int), c);
 	else if (c == 'X')
-		dest += ft_puthexa(va_arg(pd, int), c);
+		dest += ft_puthexa(va_arg(pd, unsigned int), c);
 	else if (c == '%')
 		dest += ft_putchar('%');
 	else if (c == 'p')
-		dest += ft_putstr("0x10") + ft_puthexa(va_arg(pd, int), c);
+		dest += ft_putstr("0x") + ft_puthexa(va_arg(pd, unsigned long long), c);
 	return (dest);
 }
 
@@ -66,8 +67,10 @@ int	ft_printf(char const *str, ...)
 
 /* int	main(void)
 {
- ft_printf(" %c %c %c \n", '0', 0, '1');
-	printf (" %c %c %c ", '0', 0, '1'); 
-	ft_printf("%x\n", -45);
-	//printf("\n%x", -45);
-} */
+ //ft_printf(" %c %c %c \n", '0', 0, '1');
+	//printf (" %c %c %c ", '0', 0, '1'); 
+	ft_printf("NULL %s NULL \n", NULL);
+	printf("NULL %s NULL ", NULL);
+	//printf("%x", 545);
+}
+ */
