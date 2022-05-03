@@ -6,7 +6,7 @@
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 16:47:27 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/05/02 17:21:31 by ygonzale         ###   ########.fr       */
+/*   Updated: 2022/05/03 13:32:03 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,79 @@
 
 int	ft_putchar(char c)
 {
-	return (write(1, &c, 1));
+	int	dest;
+
+	dest = 0;
+	dest += write(1, &c, 1);
+	return (dest);
 }
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
 	int	i;
+	int	dest;
 
 	i = 0;
+	dest = 0;
 	while (str[i])
 	{
-		ft_putchar(str[i]);
+		dest += ft_putchar(str[i]);
 		i++;
 	}
+	return (dest);
 }
 
-void	ft_putnbr(char nb)
+int	ft_putnbr(int nb)
 {
+	int	dest;
+
+	dest = 0;
+	if (nb == -2147483648)
+		return (ft_putstr("-2147483648"));
 	if (nb < 0)
 	{
-		write (1, "-", 1);
-		nb = -nb;
+		dest += write (1, "-", 1);
+		nb *= -1;
 	}
-	if (nb > 0)
-	{
-		ft_putchar('0' - nb % 10);
-		return ;
-	}
-	ft_putnbr(nb / 10);
-	ft_putchar(nb = '0' - nb % 10);
+	if (nb >= 10)
+		dest += ft_putnbr(nb / 10);
+	nb = nb % 10;
+	if (nb < 10)
+		dest += ft_putchar(nb + 48);
+	return (dest);
 }
 
-void	ft_puthexa(unsigned long int nb, char c)
+int	ft_puthexa(long int nb, char c)
 {
+	int	dest;
+
+	dest = 0;
+	if (nb == -2147483648)
+		return (ft_putstr("-2147483648"));
 	if (c == 'x' || c == 'p')
 	{
-		if (nb >= 16)
-			ft_puthexa(nb / 16, c);
-		ft_putchar("0123456789abcdef" [nb % 16]);
+		if (nb < 0)
+			dest += ft_puthexa(nb / 16, c);
+		else if (nb >= 16)
+			dest += ft_puthexa(nb / 16, c);
+		dest += ft_putchar("0123456789abcdef" [nb % 16]);
 	}
 	else if (c == 'X')
 	{
 		if (nb >= 16)
-			ft_puthexa(nb / 16, c);
-		ft_putchar("0123456789ABCDEF" [nb % 16]);
+			dest += ft_puthexa(nb / 16, c);
+		dest += ft_putchar("0123456789ABCDEF" [nb % 16]);
 	}
+	return (dest);
 }
 
-void	ft_putunnbr(unsigned int nb)
+int	ft_putunnbr(unsigned int nb)
 {
+	int	dest;
+
+	dest = 0;
 	if (nb > 9)
-		ft_putunnbr(nb / 10);
-	ft_putchar(nb % 10);
+		dest += ft_putunnbr(nb / 10);
+	dest += ft_putchar(nb % 10);
+	return (dest);
 }
