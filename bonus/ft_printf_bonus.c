@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 11:47:00 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/05/05 14:52:48 by ygonzale         ###   ########.fr       */
+/*   Created: 2022/05/04 10:28:03 by ygonzale          #+#    #+#             */
+/*   Updated: 2022/05/05 16:46:06 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 int	general_formats(va_list pd, char c)
 {
@@ -38,37 +38,37 @@ int	general_formats(va_list pd, char c)
 	return (dest);
 }
 
-int	ft_printf(char const *str, ...)
+int	ft_printf_bonus(char const *str, ...)
 {
 	va_list	pd;
 	int		i;
 	int		dest;
 
-	dest = 0;
-	i = 0;
 	va_start(pd, str);
+	i = 0;
+	dest = 0;
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			dest += general_formats(pd, str[i + 1]);
-			i += 2;
+			if (str[i + 1] == '+')
+				dest += ft_control_flags_plus(pd, str[i + 2]);
+			else if (str[i + 1] == ' ')
+				dest += ft_control_flags_space(pd, str[i + 2]);
+			else if (str[i + 1] == '#')
+				dest += ft_control_flags_sharp(pd, str[i + 2]);
+			i += 3;
 		}
 		else
-		{
-			dest += ft_putchar(str[i]);
-			i++;
-		}
+			dest += ft_putchar(str[i++]);
 	}
 	va_end(pd);
 	return (dest);
 }
 
-/* int	main(void)
+int	main(void)
 {
- //ft_printf(" %c %c %c \n", '0', 0, '1');
-	//printf (" %c %c %c ", '0', 0, '1'); 
-//	ft_printf("%s\n", "hola");
-	printf("% s", "hola");
-	//printf("%x", 545);
-} */
+	ft_printf_bonus("%#x\n", 3);
+	printf("%#x", 3);
+	return (0);
+}
