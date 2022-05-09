@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 10:45:36 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/05/06 13:53:25 by ygonzale         ###   ########.fr       */
+/*   Created: 2022/04/26 12:14:33 by ygonzale          #+#    #+#             */
+/*   Updated: 2022/05/04 09:40:41 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_BONUS_H
-# define FT_PRINTF_BONUS_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdio.h>
 # include <stdarg.h>
 # include <unistd.h>
 
-int		ft_printf_bonus(char const *str, ...);
+int		ft_printf(char const *str, ...);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
 int		ft_putnbr(int nb);
 int		ft_puthexa(unsigned long int nb, char c);
 int		ft_putunnbr(unsigned int nb);
 size_t	ft_strlen(const char *str);
-int		general_formats(va_list pd, char c);
-int		ft_control_flags_plus(va_list pd, char c);
-int		ft_control_flags_space(va_list pd, char c);
-int		ft_control_flags_sharp(va_list pd, char c);
 
 #endif

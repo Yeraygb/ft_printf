@@ -6,7 +6,7 @@
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 11:47:00 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/05/09 10:50:43 by ygonzale         ###   ########.fr       */
+/*   Updated: 2022/05/09 10:50:01 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ int	ft_printf(char const *str, ...)
 	return (dest);
 }
 
-int	main(void)
+/* int	main(void)
 {
  //ft_printf(" %c %c %c \n", '0', 0, '1');
 	//printf (" %c %c %c ", '0', 0, '1'); 
-	ft_printf("%p\n", -65);
-	printf("%p", -65);
-	
-}
+	ft_printf("%p\n", 62);
+	printf("%p", 62);
+	//printf("%x", 545);
+} */

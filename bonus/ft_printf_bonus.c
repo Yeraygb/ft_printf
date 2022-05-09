@@ -6,7 +6,7 @@
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 10:28:03 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/05/05 16:46:06 by ygonzale         ###   ########.fr       */
+/*   Updated: 2022/05/09 11:16:57 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_printf_bonus(char const *str, ...)
 
 int	main(void)
 {
-	ft_printf_bonus("%#x\n", 3);
-	printf("%#x", 3);
+	ft_printf_bonus("%#x", -8);
+	printf("\n%#x", -8);
 	return (0);
 }
