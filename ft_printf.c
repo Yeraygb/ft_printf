@@ -12,6 +12,14 @@
 
 #include "ft_printf.h"
 
+/*
+* Funcion para tratar los diferentes formatos
+* 
+* @param {va_list pd} los parametros desconocidos que recibe el printf
+* @param {char} el caracter despues del %
+*
+* @return {int} la string despues de ser tratada
+*/
 int	general_formats(va_list pd, char c)
 {
 	int	dest;
@@ -38,6 +46,15 @@ int	general_formats(va_list pd, char c)
 	return (dest);
 }
 
+/*
+* Funcion que recrea el printf original
+* Recorre la string que recibe, cuando encuentra % trata los diferentes formatos.
+* 
+* @param {char const *} la string que recibe
+* @param {...} todos los parametros desconocidos
+*
+* @return {int} la string que a recibido es tratada para acabar siendo escrita en consola
+*/
 int	ft_printf(char const *str, ...)
 {
 	va_list	pd;
@@ -62,13 +79,4 @@ int	ft_printf(char const *str, ...)
 	}
 	va_end(pd);
 	return (dest);
-}
-
-int	main(void)
-{
- //ft_printf(" %c %c %c \n", '0', 0, '1');
-	//printf (" %c %c %c ", '0', 0, '1'); 
-	ft_printf("%p\n", -65);
-	printf("%p", -65);
-	
 }
