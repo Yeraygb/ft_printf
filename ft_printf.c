@@ -6,19 +6,19 @@
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 11:47:00 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/05/09 10:50:43 by ygonzale         ###   ########.fr       */
+/*   Updated: 2022/05/27 11:06:46 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-* Funcion para tratar los diferentes formatos
+* Function to deal with the different formats
 * 
-* @param {va_list pd} los parametros desconocidos que recibe el printf
-* @param {char} el caracter despues del %
+* @param {va_list pd} the unknown parameters that printf receives
+* @param {char} the character after the %
 *
-* @return {int} la string despues de ser tratada
+* @return {int} the string after being treated
 */
 int	general_formats(va_list pd, char c)
 {
@@ -47,13 +47,13 @@ int	general_formats(va_list pd, char c)
 }
 
 /*
-* Funcion que recrea el printf original
-* Recorre la string que recibe, cuando encuentra % trata los diferentes formatos.
+* Function that recreates the original printf
+* It goes through the string it receives, when it finds % it tries the different formats.
 * 
-* @param {char const *} la string que recibe
-* @param {...} todos los parametros desconocidos
+* @param {char const *} the string you receive
+* @param {...} all unknown parameters
 *
-* @return {int} la string que a recibido es tratada para acabar siendo escrita en consola
+* @return {int} the string that has been received is treated to end up being written to the console
 */
 int	ft_printf(char const *str, ...)
 {
