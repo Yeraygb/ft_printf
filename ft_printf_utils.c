@@ -6,7 +6,7 @@
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 16:47:27 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/05/04 09:43:49 by ygonzale         ###   ########.fr       */
+/*   Updated: 2022/07/05 11:59:29 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	ft_putstr(char *str)
 
 	i = 0;
 	dest = 0;
+	printf("entro en el str");
 	if (!str)
 		return (ft_putstr("(null)"));
 	while (str[i])

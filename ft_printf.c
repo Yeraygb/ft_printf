@@ -6,7 +6,7 @@
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 11:47:00 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/05/27 11:06:46 by ygonzale         ###   ########.fr       */
+/*   Updated: 2022/07/05 11:59:07 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,13 @@ int	ft_printf(char const *str, ...)
 	}
 	va_end(pd);
 	return (dest);
+}
+
+int main(void)
+{
+	char *str = "hola";
+	int i = -35;
+
+	ft_printf("%d\n", i);
+	//ft_printf("%s\n", str);
 }
