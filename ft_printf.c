@@ -6,7 +6,7 @@
 /*   By: ygonzale <ygonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 11:47:00 by ygonzale          #+#    #+#             */
-/*   Updated: 2022/07/05 11:59:07 by ygonzale         ###   ########.fr       */
+/*   Updated: 2022/11/08 13:21:30 by ygonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	ft_printf(char const *str, ...)
 	{
 		if (str[i] == '%')
 		{
+			if (str[i + 1] == 0)
+				return (0);
 			dest += general_formats(pd, str[i + 1]);
 			i += 2;
 		}
@@ -79,13 +81,4 @@ int	ft_printf(char const *str, ...)
 	}
 	va_end(pd);
 	return (dest);
-}
-
-int main(void)
-{
-	char *str = "hola";
-	int i = -35;
-
-	ft_printf("%d\n", i);
-	//ft_printf("%s\n", str);
 }
